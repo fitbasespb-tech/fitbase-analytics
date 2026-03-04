@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitbase Lab — Style Guide для статей</title>
+<style>
+  :root {
+    --blue: #2563eb;
+    --blue-dark: #1e40af;
+    --dark: #1a1a2e;
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-500: #6b7280;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f9fafb;
+    --red: #dc2626;
+    --green: #16a34a;
+    --amber: #f59e0b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+    color: var(--gray-900);
+    line-height: 1.75;
+    background: #fff;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero .lead {
+    font-size: 18px;
+    color: #94a3b8;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ===================== ARTICLE CONTAINER ===================== */
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+  }
+
+  /* ===================== SECTION LABEL ===================== */
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--blue);
+    margin: 64px 0 8px;
+    padding-top: 32px;
+    border-top: 2px solid var(--gray-200);
+  }
+
+  /* ===================== TYPOGRAPHY ===================== */
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 56px 0 16px;
+    color: #0c0c0c;
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 40px 0 14px;
+    color: var(--gray-900);
+  }
+
+  p {
+    font-size: 17px;
+    color: var(--gray-700);
+    margin-bottom: 16px;
+  }
+
+  ol, ul {
+    margin: 0 0 16px 20px;
+    font-size: 17px;
+    color: var(--gray-700);
+  }
+
+  li { margin-bottom: 8px; }
+
+  strong { color: #0c0c0c; }
+
+  /* ===================== HR ===================== */
+  hr {
+    border: none;
+    height: 1px;
+    background: var(--gray-200);
+    margin: 48px 0;
+  }
+
+  /* ===================== TL;DR ===================== */
+  .tldr {
+    background: var(--gray-50);
+    border-left: 4px solid var(--blue);
+    padding: 28px 32px;
+    margin: 48px 0;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .tldr p { font-size: 16px; color: var(--gray-700); margin-bottom: 0; }
+  .tldr p + p { margin-top: 12px; }
+
+  /* ===================== HIGHLIGHT (amber) ===================== */
+  .highlight {
+    background: #fef3c7;
+    border-left: 4px solid var(--amber);
+    padding: 16px 24px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    color: var(--gray-700);
+  }
+
+  .highlight strong { color: #92400e; }
+
+  /* ===================== ACCENT (soft yellow) ===================== */
+  .accent {
+    background: #fef9e7;
+    border-left: 4px solid #eab308;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .accent p { margin-bottom: 0; }
+
+  /* ===================== FORMULA (blue center) ===================== */
+  .formula {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #1e3a8a;
+    font-weight: 600;
+  }
+
+  .formula small {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-500);
+    margin-top: 6px;
+  }
+
+  /* ===================== KEY INSIGHT (dark) ===================== */
+  .key-insight {
+    background: #0c0c0c;
+    color: #fff;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin: 32px 0;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .key-insight strong { color: #60a5fa; }
+
+  /* ===================== EXAMPLE (gray card) ===================== */
+  .example {
+    background: var(--gray-50);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .example p { margin-bottom: 4px; font-size: 16px; }
+  .example .label {
+    font-size: 13px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  /* ===================== FIGURE / SCREENSHOT ===================== */
+  figure {
+    margin: 32px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    border: 1px solid var(--gray-200);
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    background: var(--gray-50);
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--gray-500);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* ===================== CTA ===================== */
+  .cta {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+    color: #fff;
+    padding: 48px 36px;
+    border-radius: 14px;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .cta h2 { color: #fff; margin: 0 0 10px; font-size: 22px; }
+  .cta p { color: #bfdbfe; margin-bottom: 20px; }
+
+  .cta-btn {
+    display: inline-block;
+    background: #fff;
+    color: var(--blue-dark);
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.15s;
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); }
+
+  /* ===================== SPEAKER CARD (new) ===================== */
+  .speaker-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .speaker-card .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .speaker-card .info { flex: 1; }
+  .speaker-card .name { font-size: 18px; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+  .speaker-card .role { font-size: 15px; color: var(--gray-500); margin-bottom: 0; }
+  .speaker-card .company { font-size: 14px; color: var(--blue); font-weight: 600; }
+  .speaker-card .badge {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+
+  /* ===================== METRICS (new) ===================== */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+
+  .metric {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .metric .value {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .metric .desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin: 0;
+  }
+
+  /* ===================== Q&A (new) ===================== */
+  .qa-block {
+    margin: 24px 0;
+  }
+
+  .qa-block .question {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    border-left: 3px solid var(--blue);
+  }
+
+  .qa-block .answer {
+    font-size: 16px;
+    color: var(--gray-700);
+    margin-bottom: 24px;
+    padding-left: 16px;
+  }
+
+  .qa-block .answer:last-child { margin-bottom: 0; }
+
+  /* ===================== SOURCE / FOOTER ===================== */
+  .source {
+    font-size: 13px;
+    color: #9ca3af;
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .source a { color: var(--gray-500); }
+
+  /* ===================== GUIDE-SPECIFIC ===================== */
+  .guide-intro {
+    background: var(--gray-50);
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .guide-intro h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .guide-intro p {
+    font-size: 17px;
+    color: var(--gray-500);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .block-name {
+    display: inline-block;
+    background: var(--gray-100);
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--blue-dark);
+    margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- GUIDE HEADER                                                  -->
+<!-- ============================================================ -->
+<div class="guide-intro">
+  <h1>Fitbase Lab — Style Guide</h1>
+  <p>Каталог UI-блоков для статей, кейсов и лендингов. Копируй нужные блоки в новую статью.</p>
+</div>
+
+<article>
+
+<!-- ============================================================ -->
+<!-- HERO                                                          -->
+<!-- ============================================================ -->
+<p class="section-label">Hero <span class="block-name">.hero</span></p>
+</article>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Заголовок статьи на&nbsp;тёмном фоне</h1>
+    <p class="lead">Подзаголовок — одно-два предложения, раскрывающие суть. Мягкий серый цвет, центрирование.</p>
+  </div>
+</div>
+
+<article>
+
+<!-- ============================================================ -->
+<!-- TL;DR                                                         -->
+<!-- ============================================================ -->
+<p class="section-label">TL;DR / Резюме <span class="block-name">.tldr</span></p>
+
+<div class="tldr">
+  <p><strong>Коротко:</strong> Первый абзац — главный тезис статьи. Одно-два предложения, которые дают суть.</p>
+  <p>Второй абзац — контекст или масштаб проблемы. Цифры, если есть.</p>
+  <p>Третий абзац — что именно предлагает Fitbase Lab для решения проблемы.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- TYPOGRAPHY                                                    -->
+<!-- ============================================================ -->
+<p class="section-label">Типографика <span class="block-name">h2, h3, p, ul, ol</span></p>
+
+<h2>Заголовок секции (h2)</h2>
+
+<p>Основной текст статьи. Размер 17px, цвет #333 (gray-700). Межстрочный интервал 1.75. Абзацы разделяются отступом 16px снизу. Текст набирается прозой — минимум буллетов, максимум повествования.</p>
+
+<h3>Подзаголовок (h3)</h3>
+
+<p>Используется внутри секции для дробления на подтемы. Размер 21px, жирный. Особенно полезен, когда в одной секции несколько аспектов.</p>
+
+<p>Маркированный список:</p>
+<ul>
+  <li>Первый пункт — короткий и конкретный</li>
+  <li>Второй пункт — с <strong>жирным акцентом</strong> на ключевом слове</li>
+  <li>Третий пункт — без точки в конце</li>
+</ul>
+
+<p>Нумерованный список:</p>
+<ol>
+  <li>Шаг первый — описание действия</li>
+  <li>Шаг второй — описание действия</li>
+  <li>Шаг третий — описание действия</li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- HIGHLIGHT                                                     -->
+<!-- ============================================================ -->
+<p class="section-label">Highlight — акцентный блок <span class="block-name">.highlight</span></p>
+
+<div class="highlight">
+  <strong>Пример из практики:</strong> студия продала абонементов на 24 млн ₽. За месяц оказала услуг на 11,8 млн ₽. Разница в 12,2 млн — обязательства, которые ещё предстоит исполнить.
+</div>
+
+<p>Используется для примеров, важных предупреждений, ключевых цифр. Жёлтый фон + оранжевая полоска слева.</p>
+
+<!-- ============================================================ -->
+<!-- ACCENT                                                        -->
+<!-- ============================================================ -->
+<p class="section-label">Accent — мягкий акцент <span class="block-name">.accent</span></p>
+
+<div class="accent">
+  <p>На демо-данных сети из трёх клубов: <strong>24 418 030 ₽</strong> дебиторки при 906 абонементах. Это 45 489 визитов, которые ещё предстоит провести.</p>
+</div>
+
+<p>Похож на highlight, но мягче. Для цифр и данных, которые важны, но не критичны.</p>
+
+<!-- ============================================================ -->
+<!-- FORMULA                                                       -->
+<!-- ============================================================ -->
+<p class="section-label">Formula — определение / формула <span class="block-name">.formula</span></p>
+
+<div class="formula">
+  Списание услуги = реализация абонемента = заработанная выручка
+  <small>Всё, что до этого момента, — чужие деньги на вашем счёте</small>
+</div>
+
+<p>Центрированный блок на голубом фоне. Для определений, формул, ключевых уравнений бизнеса.</p>
+
+<!-- ============================================================ -->
+<!-- KEY INSIGHT                                                   -->
+<!-- ============================================================ -->
+<p class="section-label">Key Insight — ключевой вывод <span class="block-name">.key-insight</span></p>
+
+<div class="key-insight">
+  Расходы не должны превышать сумму оказанных услуг. Неважно, сколько абонементов продано — тратить можно только то, что <strong>реализовано</strong>.
+</div>
+
+<p>Тёмный блок для самых важных выводов. Белый текст, синий акцент на strong. Используется 1-2 раза за статью.</p>
+
+<!-- ============================================================ -->
+<!-- EXAMPLE                                                       -->
+<!-- ============================================================ -->
+<p class="section-label">Example — карточка с данными <span class="block-name">.example</span></p>
+
+<div class="example">
+  <p class="label">Пример из практики</p>
+  <p><strong>Продали абонементов:</strong> на 24 млн ₽</p>
+  <p><strong>Оказали услуг:</strong> на 11,8 млн ₽</p>
+  <p><strong>Разница — 12,2 млн ₽</strong> — обязательства перед клиентами</p>
+  <p style="margin-top:12px; color:#dc2626;"><strong>Потратить их сейчас = создать дыру в будущем.</strong></p>
+</div>
+
+<p>Серая карточка с лейблом наверху. Для структурированных данных: цифры, сравнения, мини-кейсы.</p>
+
+<!-- ============================================================ -->
+<!-- FIGURE / SCREENSHOT                                           -->
+<!-- ============================================================ -->
+<p class="section-label">Скриншот с подписью <span class="block-name">figure + figcaption</span></p>
+
+<figure>
+  <img src="Sources/screenshots/01_main_overview.png" alt="Главный экран дашборда">
+  <figcaption>Подпись к скриншоту: конкретные цифры, что показано на экране, почему это важно</figcaption>
+</figure>
+
+<p>Скриншот с тенью, скруглёнными углами и серой подписью. Картинка на 100% ширины контейнера.</p>
+
+<!-- ============================================================ -->
+<!-- SPEAKER CARD                                                  -->
+<!-- ============================================================ -->
+<p class="section-label">Speaker Card — карточка эксперта <span class="block-name">.speaker-card</span></p>
+
+<div class="speaker-card">
+  <div class="avatar">АС</div>
+  <div class="info">
+    <div class="badge">Эксперт</div>
+    <div class="name">Андрей Смирнов</div>
+    <p class="role">Руководитель отдела аналитики</p>
+    <span class="company">Fitbase Lab</span>
+  </div>
+</div>
+
+<p>Карточка с аватаром (инициалы или фото), именем, ролью и компанией. Бейдж сверху — опциональный.</p>
+
+<!-- ============================================================ -->
+<!-- METRICS                                                       -->
+<!-- ============================================================ -->
+<p class="section-label">Metrics — крупные цифры <span class="block-name">.metrics</span></p>
+
+<div class="metrics">
+  <div class="metric">
+    <div class="value">24.4M ₽</div>
+    <p class="desc">Дебиторская задолженность</p>
+  </div>
+  <div class="metric">
+    <div class="value">11.8M ₽</div>
+    <p class="desc">Реализовано за месяц</p>
+  </div>
+  <div class="metric">
+    <div class="value">906</div>
+    <p class="desc">Активных абонементов</p>
+  </div>
+</div>
+
+<p>Блок из 2-4 крупных метрик в ряд. Адаптивная сетка — на мобильном складывается в столбец.</p>
+
+<!-- ============================================================ -->
+<!-- Q&A                                                           -->
+<!-- ============================================================ -->
+<p class="section-label">Q&amp;A — интервью <span class="block-name">.qa-block</span></p>
+
+<div class="qa-block">
+  <p class="question">Как давно вы используете аналитику и что побудило внедрить?</p>
+  <p class="answer">Мы используем аналитику с самого открытия — уже более 4 лет. Это позволяет не загружать руководителей составлением отчётов и видеть тренды по продукту.</p>
+
+  <p class="question">Какие показатели отслеживаете чаще всего?</p>
+  <p class="answer">Выручка по новым абонементам, выручка по реактивациям и продлениям. Для тренажёрного зала — выполнение плана продаж.</p>
+</div>
+
+<p>Формат интервью: вопрос с синей полоской слева, ответ с отступом. Для кейсов и экспертных статей.</p>
+
+<!-- ============================================================ -->
+<!-- HR                                                            -->
+<!-- ============================================================ -->
+<p class="section-label">Разделитель <span class="block-name">hr</span></p>
+
+<hr>
+
+<p>Тонкая серая линия между крупными секциями. Отступ 48px сверху и снизу.</p>
+
+<!-- ============================================================ -->
+<!-- CTA                                                           -->
+<!-- ============================================================ -->
+<p class="section-label">CTA-блок <span class="block-name">.cta</span></p>
+
+<div class="cta">
+  <h2>Хотите увидеть честную картину вашего бизнеса?</h2>
+  <p>Подключите дашборд «Реализация абонементов» — 5 000 ₽/мес, адаптация под ваш клуб бесплатно</p>
+  <a href="#" class="cta-btn">Попробовать бесплатно</a>
+</div>
+
+<p>Финальный блок статьи. Синий градиент, белая кнопка. Заголовок + описание + кнопка.</p>
+
+<!-- ============================================================ -->
+<!-- SOURCE / FOOTER                                               -->
+<!-- ============================================================ -->
+<p class="section-label">Footer <span class="block-name">.source</span></p>
+
+<div class="source">
+  Fitbase Lab &middot; <a href="https://fitbase.io">fitbase.io</a> &middot; 2026
+</div>
+
+<hr>
+
+<div style="text-align:center; padding: 32px 0; color: var(--gray-500); font-size: 14px;">
+  <strong>Fitbase Lab Style Guide</strong><br>
+  Версия 1.0 &middot; Март 2026<br>
+  Копируй блоки из этого файла в новые статьи
+</div>
+
+</article>
+
+</body>
+</html>
