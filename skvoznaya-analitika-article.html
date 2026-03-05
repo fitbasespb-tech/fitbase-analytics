@@ -101,6 +101,28 @@
 
   strong { color: #0c0c0c; }
 
+  figure {
+    margin: 28px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background: #020617;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    background: #f9fafb;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #6b7280;
+    border-top: 1px solid #e5e7eb;
+  }
+
   .highlight {
     background: #fef3c7;
     border-left: 4px solid #f59e0b;
@@ -302,6 +324,11 @@
 
 <p>Сквозная аналитика для StretchHouse строится на общей архитектуре FitBase (см. ТЗ сквозной аналитики), адаптированной под сеть студий:</p>
 
+<figure>
+  <img src="Sources/Skvoznaya_Analitika/02_sources_and_funnel.png" alt="Схема: источники данных, CRM FitBase и дашборд StretchHouse">
+  <figcaption>Все источники (VK, Tilda, Taplink, карты, промоутеры, боты) сходятся в CRM FitBase и едином пакете дашбордов StretchHouse на bi.fitbase.io</figcaption>
+</figure>
+
 <ul>
   <li><strong>Источники данных:</strong>
     <ul>
@@ -408,6 +435,11 @@
 <h3>Кейс 1. Какие лиды пришли сегодня</h3>
 
 <p>Задача: понять, что случилось «здесь и сейчас».</p>
+
+<figure>
+  <img src="Sources/Skvoznaya_Analitika/01_stretchhouse_dashboard.png" alt="Обзорный дашборд StretchHouse: новые лиды, статусы, источники">
+  <figcaption>Обзорный дашборд: на одном экране — новые лиды за день, статусы обработки, источники и возможность провалиться в карточку лида в CRM одним кликом</figcaption>
+</figure>
 
 <p>В дашборде:</p>
 
