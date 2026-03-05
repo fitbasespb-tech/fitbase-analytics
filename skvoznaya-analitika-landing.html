@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сквозная аналитика для студий StretchHouse × FitBase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --blue: #1E54F6;
+      --blue-dark: #4C79FF;
+      --dark: #0b1020;
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-500: #6b7280;
+      --accent-green: #10b981;
+      --accent-amber: #fbbf24;
+      --accent-red: #ef4444;
+      --bg-soft: #0f172a;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%, #000 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      padding-top: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #dbeafe 16%, #1E54F6 52%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0b1020;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.55);
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      color: #e5e7eb;
+      letter-spacing: 0.02em;
+    }
+
+    .logo-text-sub {
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #bbf7d0 0, #22c55e 40%, #166534 100%);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero {
+      margin-top: 8px;
+      border-radius: 28px;
+      padding: 28px 24px 26px;
+      background: radial-gradient(circle at 0% -20%, rgba(56, 189, 248, 0.16) 0, transparent 55%),
+                  radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.25) 0, rgba(30, 84, 246, 0.25) 40%, rgba(15, 23, 42, 1) 72%);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.8);
+      display: grid;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-size: clamp(28px, 3.1vw, 34px);
+      line-height: 1.1;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+      color: #f9fafb;
+    }
+
+    .hero-left h1 span.accent {
+      color: #bfdbfe;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #d1d5db;
+      max-width: 480px;
+    }
+
+    .hero-sub strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 10px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .hero-metric {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-metric strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #1E54F6 0%, #4C79FF 100%);
+      color: #f9fafb;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.65);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary span.icon {
+      font-size: 15px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.55);
+      color: #e5e7eb;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-secondary span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #fbbf24;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at 20% 0%, rgba(248, 250, 252, 0.14) 0, transparent 55%),
+                  linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+      border-radius: 22px;
+      padding: 14px 14px 13px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.75);
+    }
+
+    .hero-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-label span.badge-mini {
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 10px;
+      text-transform: none;
+      letter-spacing: 0;
+      color: #e5e7eb;
+    }
+
+    .hero-dashboard {
+      border-radius: 16px;
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.16) 0, transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.16) 0, transparent 55%),
+                  #020617;
+      padding: 12px;
+      border: 1px solid rgba(30, 64, 175, 0.9);
+    }
+
+    .hero-dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 8px;
+      color: #9ca3af;
+    }
+
+    .hero-dashboard-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .kpi-card {
+      padding: 7px 8px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.22) 0, transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .kpi-label {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    .kpi-label span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .kpi-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .kpi-sub {
+      font-size: 10px;
+      color: #6ee7b7;
+    }
+
+    .hero-funnel {
+      margin-top: 4px;
+      padding-top: 7px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .hero-funnel-label {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hero-funnel-bars {
+      display: grid;
+      gap: 3px;
+      font-size: 10px;
+      color: #9ca3af;
+    }
+
+    .hero-funnel-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-funnel-row span.label {
+      min-width: 78px;
+    }
+
+    .hero-funnel-bar {
+      flex: 1;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-funnel-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #4ade80, #22c55e);
+    }
+
+    .hero-funnel-fill.mid {
+      background: linear-gradient(90deg, #fbbf24, #f97316);
+    }
+
+    .hero-funnel-fill.low {
+      background: linear-gradient(90deg, #fb7185, #ef4444);
+    }
+
+    main {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+      gap: 28px;
+    }
+
+    .tldr {
+      border-radius: 16px;
+      border-left: 3px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 12px 14px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .tldr-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .tldr p {
+      margin: 3px 0;
+      color: #e5e7eb;
+    }
+
+    h2 {
+      font-size: 17px;
+      margin: 18px 0 8px;
+      color: #e5e7eb;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin: 14px 0 6px;
+      color: #e5e7eb;
+    }
+
+    p {
+      font-size: 14px;
+      color: #d1d5db;
+      margin: 6px 0;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 6px 0 8px;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    li + li {
+      margin-top: 2px;
+    }
+
+    .highlight {
+      border-radius: 14px;
+      border-left: 3px solid rgba(251, 191, 36, 0.95);
+      background: rgba(30, 64, 175, 0.06);
+      padding: 10px 13px;
+      font-size: 13px;
+      color: #fef3c7;
+      margin: 10px 0 16px;
+    }
+
+    .highlight strong {
+      color: #facc15;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .metric-card {
+      border-radius: 14px;
+      padding: 10px 11px;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2) 0, transparent 55%),
+                  rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.95);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 2px;
+    }
+
+    .metric-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .metric-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .steps {
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      margin-top: 10px;
+    }
+
+    .steps-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .steps-list {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .step-badge {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: #9ca3af;
+    }
+
+    .side-panel {
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.22) 0, transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(30, 64, 175, 0.75);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.8);
+      position: sticky;
+      top: 16px;
+      align-self: flex-start;
+    }
+
+    .side-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 6px;
+    }
+
+    .side-sub {
+      font-size: 12px;
+      color: #cbd5f5;
+      margin-bottom: 10px;
+    }
+
+    .price-tag {
+      border-radius: 14px;
+      padding: 10px 11px;
+      background: rgba(6, 95, 70, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.8);
+      color: #bbf7d0;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .price-tag strong {
+      font-size: 15px;
+      color: #ecfdf5;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .list-compact {
+      font-size: 12px;
+      color: #e5e7eb;
+      padding-left: 16px;
+      margin: 6px 0 10px;
+    }
+
+    .list-compact li + li {
+      margin-top: 3px;
+    }
+
+    .side-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .side-contacts {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .side-contacts strong {
+      color: #e5e7eb;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer span {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px 20px;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .side-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        border-radius: 22px;
+      }
+
+      .hero-left h1 {
+        font-size: 22px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+      }
+
+      p,
+      ul {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <header>
+        <div class="logo-row">
+          <div class="logo-left">
+            <div class="logo-mark">F</div>
+            <div>
+              <div class="logo-text-main">FitBase Lab · StretchHouse</div>
+              <div class="logo-text-sub">Пакет сквозной аналитики для сети студий</div>
+            </div>
+          </div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Готово к запуску за 1–3 дня</span>
+          </div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-left">
+            <h1>Сквозная аналитика для студий <span class="accent">StretchHouse × FitBase</span></h1>
+            <div class="hero-sub">
+              <strong>Все лиды, каналы и деньги в одном дашборде.</strong> Автоматически забираем заявки из VK, Tilda, Taplink, промоутеров и чат-ботов в CRM FitBase, связываем с рекламным бюджетом и показываем реальную окупаемость маркетинга по каждой студии.
+            </div>
+            <div class="hero-metrics">
+              <div class="hero-metric"><strong>37 студий</strong> уже в пакете</div>
+              <div class="hero-metric"><strong>2,5+ месяца</strong> боевого использования</div>
+              <div class="hero-metric"><strong>100%</strong> лидов прозрачны в CRM</div>
+            </div>
+            <div class="hero-cta-row">
+              <a href="#cta" class="btn-primary">
+                <span class="icon">▶</span>
+                <span>Запросить демо пакета</span>
+              </a>
+              <a href="#structure" class="btn-secondary">
+                <span class="dot"></span>
+                <span>Посмотреть, как это работает</span>
+              </a>
+            </div>
+            <div class="hero-note">Пакет разработан и обкатан совместно с управляющей компанией StretchHouse. Подключение одной студии — от 10 000 ₽.</div>
+          </div>
+
+          <div class="hero-right">
+            <div class="hero-label">
+              <span>Фрагмент дашборда StretchHouse</span>
+              <span class="badge-mini">bi.fitbase.io</span>
+            </div>
+            <div class="hero-dashboard">
+              <div class="hero-dashboard-header">
+                <span>Executive Overview · Месяц</span>
+                <span>RF · все каналы</span>
+              </div>
+              <div class="hero-dashboard-kpi-row">
+                <div class="kpi-card">
+                  <div class="kpi-label">
+                    <span>Лиды за месяц</span>
+                    <span class="dot"></span>
+                  </div>
+                  <div class="kpi-value">224</div>
+                  <div class="kpi-sub">+18% к плану</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">
+                    <span>Новые клиенты</span>
+                  </div>
+                  <div class="kpi-value">45</div>
+                  <div class="kpi-sub">CAC 6 200 ₽</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">
+                    <span>Выручка</span>
+                  </div>
+                  <div class="kpi-value">1,2 млн ₽</div>
+                  <div class="kpi-sub">ROAS 4,1×</div>
+                </div>
+              </div>
+              <div class="hero-funnel">
+                <div class="hero-funnel-label">
+                  <span>Воронка лидов</span>
+                  <span>заявка → пробное → абонемент</span>
+                </div>
+                <div class="hero-funnel-bars">
+                  <div class="hero-funnel-row">
+                    <span class="label">Все лиды</span>
+                    <div class="hero-funnel-bar">
+                      <div class="hero-funnel-fill" style="width: 100%;"></div>
+                    </div>
+                    <span>224</span>
+                  </div>
+                  <div class="hero-funnel-row">
+                    <span class="label">Пробное</span>
+                    <div class="hero-funnel-bar">
+                      <div class="hero-funnel-fill mid" style="width: 52%;"></div>
+                    </div>
+                    <span>52%</span>
+                  </div>
+                  <div class="hero-funnel-row">
+                    <span class="label">Абонемент</span>
+                    <div class="hero-funnel-bar">
+                      <div class="hero-funnel-fill low" style="width: 21%;"></div>
+                    </div>
+                    <span>21%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section>
+          <div class="tldr">
+            <div class="tldr-title">Для кого этот пакет</div>
+            <p><strong>Для управляющей компании и партнёров сети StretchHouse</strong>, которые хотят видеть маркетинг и продажи в одной картинке: от клика по объявлению до продления абонемента.</p>
+            <p>И для студий с похожей моделью: несколько филиалов, CRM FitBase, активный перформанс-маркетинг и потребность в прозрачной экономике по каналам.</p>
+          </div>
+
+          <h2 id="problem">Проблема: лиды есть, данных нет</h2>
+          <p>В презентации и на вебинаре владельцы и управляющие студий описывают одну и ту же картину. Лиды идут, рекламные кампании крутятся, админы «что-то делают» в CRM — но ответов на простые вопросы нет:</p>
+          <ul>
+            <li>сколько лидов мы потеряли по дороге и где именно;</li>
+            <li>какие каналы реально приводят платящих клиентов, а не только заявки;</li>
+            <li>как быстро админы отрабатывают входящий поток и кто из них «маринует» лиды;</li>
+            <li>какие офферы и креативы дают лучших клиентов с точки зрения выручки и продлений.</li>
+          </ul>
+          <p>Один филиал можно держать «в голове». При 2–3 студиях и выше всё ломается: ошибки и потери растут в геометрической прогрессии, а маркетинг продолжает оценивать себя по стоимости заявки, а не по стоимости клиента.</p>
+
+          <div class="highlight">
+            <strong>Ключевая мысль:</strong> «Сквозная аналитика — это не красивый отчёт. Это способ за 30–60 секунд понять, что происходит с лидами и деньгами в каждой студии, и принять решение: где давать газ, а где тормозить».
+          </div>
+
+          <h2 id="structure">Что входит в пакет сквозной аналитики StretchHouse</h2>
+          <p>Пакет строится на общей архитектуре сквозной аналитики FitBase (см. ТЗ), но адаптирован под специфику студий стретчинга и партнёрскую модель сети.</p>
+
+          <h3>1. Интеграции и автоматическая доставка лидов</h3>
+          <p>Подключаем основные источники заявок и убираем ручной ввод:</p>
+          <ul>
+            <li>VK Ads и заявки из сообщества;</li>
+            <li>сайт на Tilda, Taplink, лендинги и формы записи;</li>
+            <li>Яндекс.Карты, 2GIS, Instagram (через сайт и UTM-метки);</li>
+            <li>промоутеры и офлайн-активации (через чат-боты и формы);</li>
+            <li>чат-боты в Telegram с реферальными ссылками.</li>
+          </ul>
+          <p>Все заявки автоматически попадают в CRM FitBase с ФИО, телефоном и полным UTM-хвостом. Менеджерам не нужно ничего переносить руками — они видят лид в воронке и сразу могут звонить.</p>
+
+          <h3>2. Дашборд би.fitbase.io под StretchHouse</h3>
+          <p>В DataLens развёрнут отдельный пакет дашбордов под StretchHouse. На вебинаре показывают лишь 3–5% возможностей, но уже они решают ежедневные задачи управляющих:</p>
+          <ul>
+            <li>«Какие лиды пришли сегодня?» — мгновенный срез по источникам и статусам;</li>
+            <li>«С какими лидами работали вчера?» — проверка работы админов и менеджеров;</li>
+            <li>«Где наши потеряшки?» — лиды без активности за последние 5–7 дней;</li>
+            <li>«Что дают UTM-метки?» — связь кампаний и креативов с деньгами и продлениями.</li>
+          </ul>
+
+          <h3>3. Бот-информатор в Telegram</h3>
+          <p>Для тех, кто не живёт в CRM, настроен бот-информатор:</p>
+          <ul>
+            <li>уведомляет о новых лидах и событиях в воронке;</li>
+            <li>подсвечивает важные статусы (недозвоны, просроченные лиды, Alarm-этап);</li>
+            <li>даёт краткий утренний дайджест по лидам и продажам.</li>
+          </ul>
+          <p>Управляющим не нужно держать открытой CRM весь день — ключевые сигналы приходят в Telegram.</p>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">Поддерживаемые источники</div>
+              <div class="metric-value">VK, Tilda, Taplink, карты, промоутеры, боты</div>
+              <div class="metric-note">Подключаем в рамках двух базовых интеграций</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Прозрачность лидов</div>
+              <div class="metric-value">100% воронки в одном экране</div>
+              <div class="metric-note">От первого контакта до продажи и продления</div>
+            </div>
+          </div>
+
+          <h2>Как это внедряется: путь за 1–3 дня</h2>
+          <p>По опыту StretchHouse, запуск пакета не требует отдельной команды аналитиков — всё делается силами FitBase Lab и вашей управляющей компании.</p>
+
+          <div class="steps">
+            <div class="steps-title">Этапы подключения</div>
+            <div class="steps-list">
+              <div class="step-item">
+                <div class="step-badge">1 · Доступы</div>
+                <div>Вы даёте доступ к рекламным кабинетам и CRM FitBase. Мы ничего не меняем в настройках рекламы — только читаем данные.</div>
+              </div>
+              <div class="step-item">
+                <div class="step-badge">2 · Интеграции</div>
+                <div>Подключаем VK, Tilda / Taplink, сайты, карты и промоутеров. Настраиваем автоматическую передачу лидов в CRM с UTM-метками.</div>
+              </div>
+              <div class="step-item">
+                <div class="step-badge">3 · Дашборд</div>
+                <div>Разворачиваем пакет дашбордов StretchHouse в bi.fitbase.io. Настраиваем фильтры по студиям, городам и кампаниям.</div>
+              </div>
+              <div class="step-item">
+                <div class="step-badge">4 · Обучение</div>
+                <div>Проводим вебинар по кейсам работы с дашбордом: как находить потеряшек, контролировать работу админов и принимать решения по бюджету.</div>
+              </div>
+            </div>
+          </div>
+
+          <h2>Что вы получаете в итоге</h2>
+          <ul>
+            <li><strong>Прозрачную воронку по каждой студии</strong> — от рекламы до денег;</li>
+            <li><strong>Оперативный контроль работы админов и менеджеров</strong> — без «ручного пересчёта в Excel»;</li>
+            <li><strong>Понимание окупаемости каналов и офферов</strong> — можно честно выключать убыточные кампании и масштабировать прибыльные;</li>
+            <li><strong>Готовую инфраструктуру под будущие модули</strong>: зарплата тренеров, реактивация, дополнительные воронки и т.п.</li>
+          </ul>
+
+          <p>И главное — у управляющей компании и партнёров появляется общий язык: все смотрят на одни и те же цифры и обсуждают решения, а не спорят о «чувствах по маркетингу».</p>
+        </section>
+
+        <aside id="cta" class="side-panel">
+          <div class="side-title">Подключить пакет сквозной аналитики</div>
+          <div class="side-sub">Оставьте контакты — команда FitBase Lab свяжется, покажет дашборд на реальных данных и рассчитает экономику под вашу сеть.</div>
+
+          <div class="price-tag">
+            <div>Подключение студии</div>
+            <div><strong>10 000 ₽</strong> разово</div>
+            <div class="metric-note">+ 1 000 ₽/мес за поддержку и обновления</div>
+          </div>
+          <div class="price-note">Интеграции VK и Tilda / Taplink — по 25 000 ₽ разово за каждую. Новые модули (зарплата тренеров и др.) добавляются в пакет без доплат для подключённых партнёров.</div>
+
+          <ul class="list-compact">
+            <li>Автоматическая доставка лидов в CRM FitBase;</li>
+            <li>Дашборд bi.fitbase.io под StretchHouse;</li>
+            <li>Бот-информатор в Telegram;</li>
+            <li>Адаптация под вашу воронку и города.</li>
+          </ul>
+
+          <div class="side-cta">
+            <a href="mailto:hello@fitbase.io?subject=Сквозная аналитика StretchHouse × FitBase" class="btn-primary">
+              <span class="icon">✉</span>
+              <span>Написать в FitBase Lab</span>
+            </a>
+            <a href="https://t.me/fitbase_bot" class="btn-secondary">
+              <span class="dot"></span>
+              <span>Связаться в Telegram</span>
+            </a>
+          </div>
+
+          <div class="side-contacts">
+            <div><strong>Формат:</strong> короткое демо на ваших данных + оценка экономического эффекта по каналам.</div>
+            <div><strong>Срок запуска:</strong> от 1 до 3 рабочих дней на студию.</div>
+          </div>
+        </aside>
+      </main>
+
+      <footer>
+        <span>FitBase Lab · Сквозная аналитика для студий</span>
+        <span>Совместный продукт с управляющей компанией StretchHouse</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+
