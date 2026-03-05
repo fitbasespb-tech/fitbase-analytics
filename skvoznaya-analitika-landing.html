@@ -8,17 +8,13 @@
     :root {
       --blue: #1E54F6;
       --blue-dark: #4C79FF;
-      --dark: #0b1020;
       --gray-900: #111827;
       --gray-700: #374151;
       --gray-500: #6b7280;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --gray-50: #f9fafb;
       --accent-green: #10b981;
-      --accent-amber: #fbbf24;
-      --accent-red: #ef4444;
-      --bg-soft: #0f172a;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.5);
     }
 
     * {
@@ -29,9 +25,9 @@
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-      background: radial-gradient(circle at top left, #111827 0, #020617 55%, #000 100%);
-      color: #e5e7eb;
-      line-height: 1.6;
+      background: #ffffff;
+      color: var(--gray-900);
+      line-height: 1.7;
     }
 
     .page {
@@ -42,13 +38,13 @@
 
     .container {
       width: 100%;
-      max-width: 1120px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 24px 16px 64px;
+      padding: 24px 16px 72px;
     }
 
     header {
-      padding-top: 12px;
+      padding-top: 8px;
       margin-bottom: 32px;
     }
 
@@ -56,9 +52,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       font-size: 13px;
-      color: #9ca3af;
+      color: var(--gray-500);
     }
 
     .logo-left {
@@ -68,27 +64,27 @@
     }
 
     .logo-mark {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #dbeafe 16%, #1E54F6 52%, #020617 100%);
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #dbeafe 18%, #1E54F6 52%, #1e293b 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       color: #0b1020;
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.55);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
     }
 
     .logo-text-main {
       font-weight: 600;
-      color: #e5e7eb;
+      color: var(--gray-900);
       letter-spacing: 0.02em;
     }
 
     .logo-text-sub {
-      color: #6b7280;
+      color: var(--gray-500);
       font-size: 12px;
     }
 
@@ -96,12 +92,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 9px;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
       font-size: 11px;
-      color: #9ca3af;
+      color: var(--gray-700);
     }
 
     .badge-dot {
@@ -109,43 +105,41 @@
       height: 7px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #bbf7d0 0, #22c55e 40%, #166534 100%);
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
     }
 
     .hero {
-      margin-top: 8px;
+      margin-top: 18px;
       border-radius: 28px;
-      padding: 28px 24px 26px;
-      background: radial-gradient(circle at 0% -20%, rgba(56, 189, 248, 0.16) 0, transparent 55%),
-                  radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.25) 0, rgba(30, 84, 246, 0.25) 40%, rgba(15, 23, 42, 1) 72%);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.8);
+      padding: 40px 36px 36px;
+      background: radial-gradient(circle at 0% -30%, rgba(96, 165, 250, 0.25) 0, transparent 55%),
+                  linear-gradient(135deg, #ffffff 0%, #f9fafb 55%, #e5edff 100%);
+      border: 1px solid #e5e7eb;
       display: grid;
-      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-      gap: 32px;
+      grid-template-columns: minmax(0, 6.5fr) minmax(0, 5.5fr);
+      gap: 40px;
       align-items: center;
     }
 
     .hero-left h1 {
-      font-size: clamp(28px, 3.1vw, 34px);
-      line-height: 1.1;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-      color: #f9fafb;
+      font-size: clamp(30px, 3.6vw, 38px);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+      color: var(--gray-900);
     }
 
     .hero-left h1 span.accent {
-      color: #bfdbfe;
+      color: var(--blue);
     }
 
     .hero-sub {
-      font-size: 15px;
-      color: #d1d5db;
-      max-width: 480px;
+      font-size: 17px;
+      color: var(--gray-700);
+      max-width: 520px;
     }
 
     .hero-sub strong {
-      color: #e5e7eb;
+      color: var(--gray-900);
       font-weight: 600;
     }
 
@@ -153,29 +147,29 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 16px 0 10px;
-      font-size: 11px;
-      color: #9ca3af;
+      margin: 18px 0 12px;
+      font-size: 12px;
+      color: var(--gray-700);
     }
 
     .hero-metric {
-      padding: 5px 9px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
     }
 
     .hero-metric strong {
-      color: #e5e7eb;
+      color: var(--gray-900);
       font-weight: 600;
     }
 
     .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
-      margin-top: 14px;
+      margin-top: 18px;
     }
 
     .btn-primary {
@@ -183,33 +177,33 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 9px 16px;
+      padding: 12px 22px;
       border-radius: 999px;
       border: none;
       background: linear-gradient(135deg, #1E54F6 0%, #4C79FF 100%);
       color: #f9fafb;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.65);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.5);
       text-decoration: none;
       white-space: nowrap;
     }
 
     .btn-primary span.icon {
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 13px;
+      padding: 11px 18px;
       border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.55);
-      color: #e5e7eb;
-      font-size: 12px;
+      border: 1px solid #cbd5f5;
+      background: #ffffff;
+      color: var(--gray-900);
+      font-size: 13px;
       cursor: pointer;
       text-decoration: none;
     }
@@ -222,382 +216,293 @@
     }
 
     .hero-note {
-      margin-top: 10px;
-      font-size: 11px;
-      color: #9ca3af;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--gray-500);
     }
 
     .hero-right {
-      background: radial-gradient(circle at 20% 0%, rgba(248, 250, 252, 0.14) 0, transparent 55%),
-                  linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+      background: #ffffff;
       border-radius: 22px;
-      padding: 14px 14px 13px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.75);
+      padding: 18px 18px 16px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     }
 
     .hero-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 9px;
+      color: var(--gray-500);
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .hero-label span.badge-mini {
-      padding: 2px 6px;
+      padding: 2px 7px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #e5e7eb;
+      background: var(--gray-50);
       font-size: 10px;
       text-transform: none;
       letter-spacing: 0;
-      color: #e5e7eb;
+      color: var(--gray-700);
     }
 
-    .hero-dashboard {
+    .hero-illustration {
       border-radius: 16px;
-      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.16) 0, transparent 55%),
-                  radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.16) 0, transparent 55%),
-                  #020617;
-      padding: 12px;
-      border: 1px solid rgba(30, 64, 175, 0.9);
-    }
-
-    .hero-dashboard-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 11px;
-      margin-bottom: 8px;
-      color: #9ca3af;
-    }
-
-    .hero-dashboard-kpi-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .kpi-card {
-      padding: 7px 8px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.22) 0, transparent 55%),
-                  rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    .kpi-label {
-      font-size: 10px;
-      color: #9ca3af;
-      margin-bottom: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 4px;
-    }
-
-    .kpi-label span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .kpi-value {
-      font-size: 14px;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .kpi-sub {
-      font-size: 10px;
-      color: #6ee7b7;
-    }
-
-    .hero-funnel {
-      margin-top: 4px;
-      padding-top: 7px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-    }
-
-    .hero-funnel-label {
-      font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .hero-funnel-bars {
-      display: grid;
-      gap: 3px;
-      font-size: 10px;
-      color: #9ca3af;
-    }
-
-    .hero-funnel-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-funnel-row span.label {
-      min-width: 78px;
-    }
-
-    .hero-funnel-bar {
-      flex: 1;
-      height: 7px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
       overflow: hidden;
-      position: relative;
+      border: 1px solid #e5e7eb;
+      background: #020617;
     }
 
-    .hero-funnel-fill {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #4ade80, #22c55e);
-    }
-
-    .hero-funnel-fill.mid {
-      background: linear-gradient(90deg, #fbbf24, #f97316);
-    }
-
-    .hero-funnel-fill.low {
-      background: linear-gradient(90deg, #fb7185, #ef4444);
+    .hero-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     main {
-      margin-top: 32px;
+      margin-top: 40px;
       display: grid;
       grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-      gap: 28px;
+      gap: 32px;
+      align-items: flex-start;
     }
 
     .tldr {
       border-radius: 16px;
-      border-left: 3px solid rgba(148, 163, 184, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 12px 14px;
-      font-size: 13px;
-      margin-bottom: 18px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      padding: 18px 20px;
+      font-size: 15px;
+      margin-bottom: 22px;
     }
 
     .tldr-title {
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: #9ca3af;
-      margin-bottom: 4px;
+      color: var(--gray-500);
+      margin-bottom: 6px;
     }
 
     .tldr p {
-      margin: 3px 0;
-      color: #e5e7eb;
+      margin: 4px 0;
+      color: var(--gray-800);
     }
 
     h2 {
-      font-size: 17px;
-      margin: 18px 0 8px;
-      color: #e5e7eb;
-      letter-spacing: -0.01em;
+      font-size: 24px;
+      margin: 26px 0 10px;
+      color: var(--gray-900);
+      letter-spacing: -0.03em;
     }
 
     h3 {
-      font-size: 15px;
-      margin: 14px 0 6px;
-      color: #e5e7eb;
+      font-size: 18px;
+      margin: 18px 0 8px;
+      color: var(--gray-900);
     }
 
     p {
-      font-size: 14px;
-      color: #d1d5db;
-      margin: 6px 0;
+      font-size: 16px;
+      color: var(--gray-700);
+      margin: 8px 0;
     }
 
     ul {
-      padding-left: 18px;
-      margin: 6px 0 8px;
-      color: #d1d5db;
-      font-size: 14px;
+      padding-left: 20px;
+      margin: 6px 0 10px;
+      color: var(--gray-700);
+      font-size: 16px;
     }
 
     li + li {
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .highlight {
-      border-radius: 14px;
-      border-left: 3px solid rgba(251, 191, 36, 0.95);
-      background: rgba(30, 64, 175, 0.06);
-      padding: 10px 13px;
-      font-size: 13px;
-      color: #fef3c7;
-      margin: 10px 0 16px;
+      border-radius: 12px;
+      border-left: 4px solid #f59e0b;
+      background: #fffbeb;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #92400e;
+      margin: 14px 0 20px;
     }
 
     .highlight strong {
-      color: #facc15;
+      color: #b45309;
     }
 
     .metrics-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+      gap: 14px;
+      margin-top: 14px;
     }
 
     .metric-card {
-      border-radius: 14px;
-      padding: 10px 11px;
-      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2) 0, transparent 55%),
-                  rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(55, 65, 81, 0.95);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
     }
 
     .metric-label {
-      font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 2px;
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-bottom: 4px;
     }
 
     .metric-value {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
-      color: #e5e7eb;
+      color: var(--gray-900);
     }
 
     .metric-note {
-      font-size: 11px;
-      color: #9ca3af;
-      margin-top: 2px;
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 4px;
     }
 
     .steps {
-      border-radius: 16px;
-      padding: 12px 12px 10px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      margin-top: 10px;
+      border-radius: 14px;
+      padding: 14px 16px 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      margin-top: 12px;
     }
 
     .steps-title {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 6px;
+      color: var(--gray-500);
+      margin-bottom: 8px;
     }
 
     .steps-list {
       display: grid;
-      gap: 6px;
-      font-size: 13px;
-      color: #d1d5db;
+      gap: 8px;
+      font-size: 15px;
+      color: var(--gray-700);
     }
 
     .step-item {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
-      gap: 6px;
+      gap: 8px;
       align-items: baseline;
     }
 
     .step-badge {
-      font-size: 11px;
-      padding: 3px 7px;
+      font-size: 12px;
+      padding: 4px 9px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      color: #9ca3af;
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
+      color: #1d4ed8;
+      font-weight: 600;
     }
 
     .side-panel {
       border-radius: 18px;
-      padding: 14px 14px 16px;
-      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.22) 0, transparent 55%),
-                  rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(30, 64, 175, 0.75);
-      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.8);
+      padding: 18px 18px 20px;
+      background: #0f172a;
+      border: 1px solid #1f2937;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.35);
       position: sticky;
       top: 16px;
       align-self: flex-start;
+      color: #f9fafb;
     }
 
     .side-title {
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 600;
-      color: #e5e7eb;
       margin-bottom: 6px;
     }
 
     .side-sub {
-      font-size: 12px;
-      color: #cbd5f5;
-      margin-bottom: 10px;
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 12px;
     }
 
     .price-tag {
       border-radius: 14px;
-      padding: 10px 11px;
+      padding: 12px 13px;
       background: rgba(6, 95, 70, 0.18);
-      border: 1px solid rgba(16, 185, 129, 0.8);
+      border: 1px solid rgba(16, 185, 129, 0.9);
       color: #bbf7d0;
       font-size: 13px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .price-tag strong {
-      font-size: 15px;
+      font-size: 16px;
       color: #ecfdf5;
     }
 
     .price-note {
-      font-size: 11px;
+      font-size: 12px;
       color: #9ca3af;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .list-compact {
-      font-size: 12px;
+      font-size: 13px;
       color: #e5e7eb;
-      padding-left: 16px;
-      margin: 6px 0 10px;
+      padding-left: 18px;
+      margin: 6px 0 12px;
     }
 
     .list-compact li + li {
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .side-cta {
       display: flex;
       flex-direction: column;
-      gap: 7px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 12px;
     }
 
     .side-contacts {
-      font-size: 11px;
+      font-size: 12px;
       color: #9ca3af;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .side-contacts strong {
       color: #e5e7eb;
     }
 
+    .section-illustration {
+      margin: 18px 0 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #020617;
+    }
+
+    .section-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     footer {
       margin-top: 40px;
       padding-top: 16px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      font-size: 11px;
-      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: var(--gray-500);
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -611,7 +516,7 @@
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding: 22px 18px 20px;
+        padding: 28px 20px 26px;
       }
 
       .hero-right {
@@ -633,16 +538,16 @@
       }
 
       .hero-left h1 {
-        font-size: 22px;
+        font-size: 26px;
       }
 
       .hero-sub {
-        font-size: 13px;
+        font-size: 15px;
       }
 
       p,
       ul {
-        font-size: 13px;
+        font-size: 15px;
       }
     }
   </style>
@@ -694,64 +599,8 @@
               <span>Фрагмент дашборда StretchHouse</span>
               <span class="badge-mini">bi.fitbase.io</span>
             </div>
-            <div class="hero-dashboard">
-              <div class="hero-dashboard-header">
-                <span>Executive Overview · Месяц</span>
-                <span>RF · все каналы</span>
-              </div>
-              <div class="hero-dashboard-kpi-row">
-                <div class="kpi-card">
-                  <div class="kpi-label">
-                    <span>Лиды за месяц</span>
-                    <span class="dot"></span>
-                  </div>
-                  <div class="kpi-value">224</div>
-                  <div class="kpi-sub">+18% к плану</div>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">
-                    <span>Новые клиенты</span>
-                  </div>
-                  <div class="kpi-value">45</div>
-                  <div class="kpi-sub">CAC 6 200 ₽</div>
-                </div>
-                <div class="kpi-card">
-                  <div class="kpi-label">
-                    <span>Выручка</span>
-                  </div>
-                  <div class="kpi-value">1,2 млн ₽</div>
-                  <div class="kpi-sub">ROAS 4,1×</div>
-                </div>
-              </div>
-              <div class="hero-funnel">
-                <div class="hero-funnel-label">
-                  <span>Воронка лидов</span>
-                  <span>заявка → пробное → абонемент</span>
-                </div>
-                <div class="hero-funnel-bars">
-                  <div class="hero-funnel-row">
-                    <span class="label">Все лиды</span>
-                    <div class="hero-funnel-bar">
-                      <div class="hero-funnel-fill" style="width: 100%;"></div>
-                    </div>
-                    <span>224</span>
-                  </div>
-                  <div class="hero-funnel-row">
-                    <span class="label">Пробное</span>
-                    <div class="hero-funnel-bar">
-                      <div class="hero-funnel-fill mid" style="width: 52%;"></div>
-                    </div>
-                    <span>52%</span>
-                  </div>
-                  <div class="hero-funnel-row">
-                    <span class="label">Абонемент</span>
-                    <div class="hero-funnel-bar">
-                      <div class="hero-funnel-fill low" style="width: 21%;"></div>
-                    </div>
-                    <span>21%</span>
-                  </div>
-                </div>
-              </div>
+            <div class="hero-illustration">
+              <img src="Sources/Skvoznaya_Analitika/01_stretchhouse_dashboard.png" alt="Сквозная аналитика StretchHouse · обзорный дашборд">
             </div>
           </div>
         </section>
@@ -780,6 +629,9 @@
           </div>
 
           <h2 id="structure">Что входит в пакет сквозной аналитики StretchHouse</h2>
+          <div class="section-illustration">
+            <img src="Sources/Skvoznaya_Analitika/02_sources_and_funnel.png" alt="Схема: источники лидов, CRM и дашборд StretchHouse">
+          </div>
           <p>Пакет строится на общей архитектуре сквозной аналитики FitBase (см. ТЗ), но адаптирован под специфику студий стретчинга и партнёрскую модель сети.</p>
 
           <h3>1. Интеграции и автоматическая доставка лидов</h3>
